@@ -41,6 +41,13 @@
 #include "rnn.h"
 #include "rnn_data.h"
 
+#ifdef __arm__
+// force using floating point in biquad, and for log10 and sqrt
+#define double float
+#define log10 log10f
+#define sqrt sqrtf
+#endif
+
 #define FRAME_SIZE_SHIFT 2
 #define FRAME_SIZE (120<<FRAME_SIZE_SHIFT)
 #define WINDOW_SIZE (2*FRAME_SIZE)
