@@ -24,3 +24,4 @@ target_include_directories(rnnoise INTERFACE
 
 add_subdirectory("examples/benchmark")
 add_subdirectory("examples/serial")
+add_subdirectory("examples/usb_pdm_microphone")
