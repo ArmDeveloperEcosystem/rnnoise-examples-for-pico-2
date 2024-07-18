@@ -37,12 +37,12 @@ absolute_time_t last_tx = 0;
 void on_pdm_samples_ready();
 void on_usb_microphone_tx_ready();
 
+uint32_t core1_stack[0xc000 / sizeof(uint32_t)];
 void core1_entry();
 
 
 int main(void)
 {
-  set_sys_clock_khz(150000, false);
   stdio_init_all();
 
   // initialized GPIO pin for switch
@@ -54,7 +54,7 @@ int main(void)
   usb_microphone_init();
   usb_microphone_set_tx_ready_handler(on_usb_microphone_tx_ready);
 
-  multicore_launch_core1(core1_entry);
+  multicore_launch_core1_with_stack(core1_entry, core1_stack, sizeof(core1_stack));
 
   while (1) {
     // run the USB microphone task continuously

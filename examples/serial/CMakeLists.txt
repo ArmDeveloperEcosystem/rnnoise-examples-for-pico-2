@@ -4,6 +4,10 @@ add_executable(rnnoise-serial
     main.c
 )
 
+target_compile_definitions(rnnoise-serial PRIVATE
+    -DPICO_STACK_SIZE=0xc000
+)
+
 target_link_libraries(rnnoise-serial
     pico_stdlib
     rnnoise
