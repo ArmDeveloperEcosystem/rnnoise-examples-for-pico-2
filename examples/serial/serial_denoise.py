@@ -1,3 +1,8 @@
+#
+# SPDX-FileCopyrightText: Copyright 2024 Arm Limited and/or its affiliates <open-source-office@arm.com>
+# SPDX-License-Identifier: BSD-3-Clause
+#
+
 import sys
 
 import serial
